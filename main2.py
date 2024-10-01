@@ -20,6 +20,7 @@ product_details = st.text_input("Any extra details about the product or the Inst
 
 # Check if the user has provided the necessary details
 if product_website and product_details:
+    
     # Create Agents
     product_competitor_agent = agents.product_competitor_agent()
     strategy_planner_agent = agents.strategy_planner_agent()
