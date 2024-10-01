@@ -20,6 +20,8 @@ product_details = input("Any extra details about the product and or the instagra
 product_competitor_agent = agents.product_competitor_agent()
 strategy_planner_agent = agents.strategy_planner_agent()
 creative_agent = agents.creative_content_creator_agent()
+
+
 # Create Tasks
 website_analysis = tasks.product_analysis(product_competitor_agent, product_website, product_details)
 market_analysis = tasks.competitor_analysis(product_competitor_agent, product_website, product_details)
