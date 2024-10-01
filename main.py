@@ -1,6 +1,6 @@
 from dotenv import load_dotenv
 load_dotenv()
-
+import streamlit as st
 from textwrap import dedent
 from crewai import Agent, Crew
 
@@ -10,10 +10,16 @@ from agents import MarketingAnalysisAgents
 tasks = MarketingAnalysisTasks()
 agents = MarketingAnalysisAgents()
 
-print("## Welcome to the marketing Crew")
-print('-------------------------------')
-product_website = input("What is the product website you want a marketing strategy for?\n")
-product_details = input("Any extra details about the product and or the instagram post you want?\n")
+title = st.header("Welcome to the marketing Crew") 
+product_website = st.text_input("What is the product website you want a marketing strategy for?")
+product_details = st.text_input("Any extra details about the product and or the instagram post you want?")
+
+
+# print("## Welcome to the marketing Crew")
+# print('-------------------------------')
+#product_website = input("What is the product website you want a marketing strategy for?\n")
+#product_details = input("Any extra details about the product and or the instagram post you want?\n")
+
 
 
 # Create Agents
