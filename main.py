@@ -2,15 +2,15 @@ from dotenv import load_dotenv
 load_dotenv()
 import streamlit as st
 from textwrap import dedent
-from crewai import Agent, Crew
+from crewai import Crew
 
-from tasks import MarketingAnalysisTasks
 from agents import MarketingAnalysisAgents
+from tasks import MarketingAnalysisTasks
 
 tasks = MarketingAnalysisTasks()
 agents = MarketingAnalysisAgents()
 
-title = st.header("Welcome to the marketing Crew") 
+st.header("Welcome to the marketing Crew") 
 product_website = st.text_input("What is the product website you want a marketing strategy for?")
 product_details = st.text_input("Any extra details about the product and or the instagram post you want?")
 
@@ -22,19 +22,19 @@ product_details = st.text_input("Any extra details about the product and or the 
 
 if product_website and product_details:
     
-       # Create Agents
+       # Criando Agentes
 		product_competitor_agent = agents.product_competitor_agent()
 		strategy_planner_agent = agents.strategy_planner_agent()
 		creative_agent = agents.creative_content_creator_agent()
 
 
-		# Create Tasks
+		# Criando Tarefas
 		website_analysis = tasks.product_analysis(product_competitor_agent, product_website, product_details)
 		market_analysis = tasks.competitor_analysis(product_competitor_agent, product_website, product_details)
 		campaign_development = tasks.campaign_development(strategy_planner_agent, product_website, product_details)
 		write_copy = tasks.instagram_ad_copy(creative_agent)
 
-		# Create Crew responsible for Copy
+		# Create Crew responsible for Copy -- Criando a tripulação responsável pelo Cópia
 		copy_crew = Crew(
 			agents=[
 				product_competitor_agent,
@@ -55,6 +55,7 @@ if product_website and product_details:
 		# Create Crew responsible for Image
 		senior_photographer = agents.senior_photographer_agent()
 		chief_creative_diretor = agents.chief_creative_diretor_agent()
+
 		# Create Tasks for Image
 		take_photo = tasks.take_photograph_task(senior_photographer, ad_copy, product_website, product_details)
 		approve_photo = tasks.review_photo(chief_creative_diretor, product_website, product_details)
