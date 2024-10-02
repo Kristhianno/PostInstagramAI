@@ -75,17 +75,13 @@ if product_website and product_details:
 	
 
 		# Print results
-		#print("\n\n########################")
-		st.write('Here is the result')
-		st.write('Your post copy:',ad_copy)
-		st.write('Your midjourney description:',image)
-
-		#print("## Here is the result")
-		#print("########################\n")
-		#print("Your post copy:")
-		#print(ad_copy)
-		#print("'\n\nYour midjourney description:")
-		#print(image)
+		print("\n\n########################")
+		print("## Here is the result")
+		print("########################\n")
+		print("Your post copy:")
+		print(ad_copy)
+		print("'\n\nYour midjourney description:")
+		print(image)
 
 else:
 	st.write("Please enter both the product website and product details to generate the marketing content.")
